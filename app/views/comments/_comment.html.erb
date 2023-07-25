@@ -1,0 +1,6 @@
+<p><%= comment.body %></p>
+Por: <strong><%= comment.user.email %></strong>
+<% if current_user && current_user.role == "admin" %>
+  <%= link_to("Eliminar comentario", publication_comment_path(@publication, comment), data: {turbo_method: :delete}) %>
+<% end %> 
+<hr>

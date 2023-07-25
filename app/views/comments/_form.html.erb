@@ -1,0 +1,9 @@
+<%= form_with(url: publication_comments_path(publication), method: :post, :html => {:style => "width: 500px;"}) do |form| %>
+  <div>
+    <%= form.label "comment[body]", "Comentar", style: "display: block" %>
+    <%= form.text_area "comment[body]", class:"form-control" %>
+  </div>
+  <div>
+    <%= form.submit "Comentar", class:"btn btn-primary my-3" %>
+  </div>
+<% end %>

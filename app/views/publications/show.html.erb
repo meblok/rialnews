@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @publication %>
+
+<% if current_user && current_user.role == "admin" %>
+<div class="btn-group">
+  <%= link_to "Edit this publication", edit_publication_path(@publication), class: "btn btn-warning" %>
+  <%= link_to "Destroy this publication", @publication, class: "btn btn-danger", data: { turbo_method: :delete} %>
+</div>
+<% end %>
+
+<%= link_to "Back to publications", publications_path, class: "btn btn-primary" %>
+
+<h3><u>Comentarios</u></h3>
+<%= render @publication.comments %>
+<%= render partial: 'comments/form', locals: { publication: @publication } %>

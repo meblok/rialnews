@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light navbar-expand-lg border-bottom border-2 border-secondary">
+  <div class="container">
+    <%= link_to "The rial news", root_path, class: "navbar-brand" %>
+    <%= button_tag type: :button,
+        class: "navbar-toggler",
+        data: {bs_toggle: "collapse", bs_target: "#navbar"} do %>
+          <%= tag.span class: "navbar-toggler-icon" %>
+    <% end %>
+    <div class="collapse navbar-collapse" id="navbar">
+      <div class="navbar-nav ms-auto gap-2">
+      <% if user_signed_in? %>
+        <%= button_to "Sign Out", destroy_user_session_path, class: "btn btn-secondary", method: :delete %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-dark" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
